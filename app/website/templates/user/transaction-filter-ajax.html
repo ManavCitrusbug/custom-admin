@@ -1,0 +1,122 @@
+<div class="vertical-tab-inner transactions-vertical-tab-inner">
+
+    <div class="search-profile-filter-div">
+      <div class="form-div search-v-form-div">
+
+        <div class="error-group">
+          <span id="transaction-filter-error" style="color:red;"></span>
+        </div>
+        <div class="row mlr-8">
+          <div class="col-lg-10 col-md-10 width-100-m-50 plr-8">
+            <div class="row mlr-8">
+              <div class="col-lg-6 col-md-6 plr-8">
+                <div class="form-group select2-custom-fg no-drop-icon-select2">
+                  <label for="">SELECT MONTH</label>
+                  <div class="select-box select-common select-custom2">
+                    <select class="js-select2" id="select-month01">
+                      <option> </option>
+                      <option>January</option>
+                      <option>February</option>
+                      <option>March</option>
+                      <option>April</option>
+                      <option>May</option>
+                      <option>June</option>
+                      <option>July</option>
+                      <option>August</option>
+                      <option>September</option>
+                      <option>October</option>
+                      <option>November</option>
+                      <option>December</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-md-6 plr-8">
+                <div class="form-group select2-custom-fg no-drop-icon-select2">
+                  <label for="">SELECT YEAR</label>
+                  <div class="select-box select-common select-custom2">
+                    <select class="js-select2" id="select-year01">
+                      <option> </option>
+                      <option>2021</option>
+                      <option>2020</option>
+                      <option>2019</option>
+                      <option>2018</option>
+                      <option>2017</option>
+                      <option>2016</option>
+                      <option>2015</option>
+                    </select>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+          
+          <div class="col-lg-2 col-md-2 width-50px plr-8">
+            <div class="btn-pro-search-div">
+              <form>
+                {% csrf_token %}
+              <button type="button" id="transaction-filter" class="btn btn-pro-icon-search"> <i class="bg-custom-icon search-icon"></i> </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="transactions-list-div">
+      <div class="transactions-list-row">
+
+        <div class="text-line-center-div">
+          <div class="text-line-center-row">
+            <div class="title-div"> <span class="text">SEPTEMBER 2020</span> </div>
+          </div>
+        </div>
+
+        <div class="transactions-list-root">
+          <div class="transactions-list-root-row">
+            {% for transaction in transactions %}
+            <div class="transactions-pay-box">
+              <div class="transactions-pay-row">
+                <div class="transactions-pay-left">
+                  <h5>{{transaction.item_name}}</h5>
+                  <p>ref: {{transaction.transaction_id}}</p>
+                </div>
+                <div class="transactions-pay-right">
+                  <h4>S$ {{transaction.item_price}}</h4>
+                  <h4>Quantity: {{transaction.quantity}}</h4>
+                  <p>{{transaction.created_at.date}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+
+          </div>
+
+          <div class="pagination-root">
+            {% if transactions.has_other_pages %}
+            <ul class="pagination-ul">
+              {% if transactions.has_previous %}
+              <li class="next"> <a href="?page={{ transactions.previous_page_number }}"> <i class="fas fa-chevron-left"></i> </a> </li>
+              {% endif %}
+              {% for i in transactions.paginator.page_range %}
+              {% if transactions.number == i %}
+              <li class="active"> <a href="#">{{i}}</a> </li>
+              {% else %}
+              <li > <a href="?page={{ i }}">{{i}}</a> </li>
+              {% endif %}
+              {% endfor %}
+              {% if transactions.has_next %}
+              <li class="next"> <a href="?page={{ transactions.next_page_number }}"> <i class="fas fa-chevron-right"></i> </a> </li>
+              {% endif %}
+            </ul>
+            {% endif %}
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>

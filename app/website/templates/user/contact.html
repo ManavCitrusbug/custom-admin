@@ -1,0 +1,215 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <div class="main-middle-area">
+
+      <section class="title-wt-back-section">
+        <div class="container-fluid container-fluid-2000">
+          <div class="title-wt-back-div">
+            <div class="row align-center-row">
+              <div class="col-lg-2 col-md-3">
+                <div class="back-div">
+                  <a href="{% url 'index' %}" class="link back-link"> <span class="icon-span"> <i class="las la-angle-double-left"></i> </span> <span class="text">Back</span> </a>
+                </div>
+              </div>
+              <div class="col-lg-10 col-md-9">
+                <div class="title-div">
+                  <h2>Contact</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-am-content-section">
+        <div class="tab-am-content-div">
+
+          <div class="container-fluid container-fluid-2000">
+            <div class="row">
+              <div class="col-lg-10 offset-lg-2 col-md-12">
+
+                <div class="tabs-root-common">
+
+                  <div class="tabs-header-common">
+                    <ul class="nav nav-tabs">
+                      <li class="nav-item">
+                        <a class="nav-link " href="{% url 'about' %}">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link " href="{% url 'privacy-policy' %}">Privacy Policy</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'terms-and-conditions' %}">Terms and Conditions</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'contact' %}">Contact</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="tabs-body">
+                    <div class="tab-content">
+
+                      <div id="about-tab-01" class="tab-pane active">
+
+                        <div class="general-text-content-div contact-text-content-div">
+                          
+                          <div class="general-text-content-inner mb-c50 max-width-870">
+                            <div class="row">
+                              <div class="col-lg-12 col-md-12">
+
+                                <div class="form-div">
+                                  
+                                  <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                      <div class="header-div-box">
+                                        <h4>Contact Me</h4>
+                                        <p>Please fill in your contact details and a summary of your enquiries.</p>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <label for="">NAME</label>
+                                        <div class="input-control-div">
+                                          <input type="text" id="name" class="form-control" placeholder="Enter name" />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6">
+                                      <div class="form-group select2-custom-fg">
+                                        <label for="">ENQUIRY</label>
+                                        <div class="select-box select-common select-custom2">
+                                          <select class="js-select2" id="select-enquiry01" aria-placeholder="Select enquiry">
+                                            <option> </option>
+                                            {% for inquiry in inquiry_types %}
+                                              <option>{{inquiry.inquiry_type}}</option>
+                                            {% endfor %}
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <label for="">EMAIL</label>
+                                        <div class="input-control-div">
+                                          <input type="email" id="email" class="form-control" placeholder="Enter email address" />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6">
+                                      <div class="form-group select2-custom-fg country-select-group">
+                                        <label for="">PHONE</label>
+                                        <div class="country-box-row">
+                                          <div class="select-box select-custom2 select-custom2-general">
+                                            <div class="select-country">
+                                              <select name="" id="select-country-number" class="form-control"></select>
+                                            </div>
+                                            <div class="form-control-group-flag">
+                                              <input type="text" id="phone-number" class="form-control" placeholder="Enter phone number" />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                      <div class="form-group">
+                                        <label for="">NOTE</label>
+                                        <div class="input-control-div">
+                                          <textarea class="form-control" id="note" placeholder="Enter note" cols="30" rows="4"></textarea>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                    <form>
+                                      {% csrf_token %}
+                                      <div class="btn-submit-div">
+                                        <div class="error-message-bottom-all">
+                                          <span class="text-span" id="contact-form-error"></span>
+                                        </div>
+                                        <button type="button" id="contact-submit-btn" class="btn btn-color-primary min-width-160"> Submit </button>
+                                      </div>
+                                    </form>
+                                    </div>
+
+                                  </div>
+
+                                </div>
+
+                                <div class="map-view-div">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                      <div class="map-view-inner-div">
+                                        <div class="header-div-box">
+                                          <h4>Location</h4>
+                                          <p>Kitchener Complex, 808 French Road #03-13, Singapore 200808</p>
+                                        </div>
+
+                                        <div class="map-div">
+                                          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3988.777883005553!2d103.85971896535595!3d1.308514299045633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKitchener%20Complex%2C%20808%20French%20Road%20%2303-13%2C%20Singapore%20200808!5e0!3m2!1sen!2sin!4v1607082626864!5m2!1sen!2sin" class="map-iframe" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {% block javascript %}
+      <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+      <script src="{% static 'assets/js/contact.js' %}"></script>
+      <!-- <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+      <script src="{% static 'assets/js/select2.full.js' %}"></script>
+      <script src="{% static 'assets/js/get-flag.js' %}"></script> -->
+    
+      <!-- <script>
+        $(document).ready(function () {
+          $(".js-select2").select2({
+            minimumResultsForSearch: -1
+          });
+    
+          $("#select-enquiry01").select2({
+            placeholder: "General Enquiry",
+            minimumResultsForSearch: -1,
+            dropdownPosition: 'below',
+          });
+    
+          $('#select-enquiry01 + .select2').click(function () {
+            $(".select2-container").addClass("active-select2-dropdown active-select2-dropdown2");
+          });
+        });
+      </script> -->
+      {% endblock javascript %}
+    </div>
+
+    {% endblock %}

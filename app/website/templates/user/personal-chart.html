@@ -1,0 +1,400 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="main-middle-area">
+
+      <section class="title-wt-back-section title-back-abs-section">
+        <div class="container-fluid container-fluid-2000">
+          <div class="title-wt-back-div">
+            <div class="row align-center-row">
+              <div class="col-lg-12 col-md-12">
+                <div class="back-div">
+                  <a href="{% url 'free-charts' %}" class="link back-link"> <span class="icon-span"> <i class="las la-angle-double-left"></i> </span> <span class="text">Back</span> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {% if not status %}
+      <div class="custom-title-div">
+        <h2>Invalid Date Selected</h2>
+      </div>
+      {% else %}
+      <section class="personal-chart-view-section center-abs-container-section">
+        <div class="personal-chart-view-div">
+
+          <div class="container container-1170">
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+
+                <div class="personal-chart-view-root">
+
+                  <div class="row row-v-tab-root">
+                    <div class="col-lg-12 col-md-12 col-sp-12-root">
+
+                     <div class="personal-chart-card-grid">
+                      <div class="personal-chart-card-grid-in">
+
+                        <div class="row pchart-top-row m-0">
+                          <div class="col-lg-4 col-md-4 center-left-col p-0">
+                            <h3>{{name}}</h3>  
+                          </div>
+                          <div class="col-lg-4 col-md-4 center-col p-0">
+                            <h4>Personal Chart</h4>  
+                          </div>
+                          <div class="col-lg-4 col-md-4 center-right-col p-0">
+                            <h3>{{formated_dob}}</h3>  
+                          </div>
+                        </div>
+
+                        <div class="row pchart-row02 m-0">
+                          <div class="col-lg-3 col-md-3 col-width-22 p-0">
+                            <div class="center-number-box">
+                              <h1>{{line4.2}}</h1>
+                            </div>
+                          </div>
+                          <div class="col-lg-9 col-md-9 col-width-78 p-0">
+                            <div class="card-list-chart">
+                              <div class="card-list-col-div">
+                                <ul>
+                                  {% for i in range1  %}
+                                  <li>{{i}}</li>
+                                  {% endfor %}
+                                </ul>
+                              </div>
+                              <div class="card-list-col-div">
+                                <ul>
+                                  {% for i in range2 %}
+                                  <li>{{i}}</li>
+                                  {% endfor %}
+                                </ul>
+                              </div>
+                              <div class="card-list-col-div">
+                                <ul>
+                                  {% for i in range3 %}
+                                  <li>{{i}}</li>
+                                  {% endfor %}
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row pchart-row03 m-0">
+                          <div class="col-lg-12 col-md-12 center-col p-0">
+                            <h4>Personal Body Merkaban Chart</h4>  
+                          </div>
+                        </div>
+
+                        <div class="row pchart-row04 m-0">
+
+                          <div class="col-lg-3 col-md-3 col-3 center-col p-0">
+                            <div class="whi-card-number-box">
+
+                              <div class="whi-card-number-box-row">
+                                <div class="whi-card-number-box-col col-width-50">
+                                  <h2>{{line1.0}}</h2>
+                                </div>
+                                <div class="whi-card-number-box-col col-width-50">
+                                  <h2>{{line1.1}}</h2>
+                                </div>
+                              </div>
+
+                              <div class="whi-card-number-box-row">
+                                <div class="whi-card-number-box-col col-width-100">
+                                  <h2>{{line2.0}}</h2>
+                                </div>
+                              </div>
+                              
+                            </div>
+                            <div class="black-white-box left-bwb">
+                            </div>
+                          </div>
+
+                          <div class="col-lg-3 col-md-3 col-3 center-col p-0">
+                            <div class="whi-card-number-box">
+
+                              <div class="whi-card-number-box-row">
+                                <div class="whi-card-number-box-col col-width-50">
+                                  <h2>{{line1.2}}</h2>
+                                </div>
+                                <div class="whi-card-number-box-col col-width-50">
+                                  <h2>{{line1.3}}</h2>
+                                </div>
+                              </div>
+
+                              <div class="whi-card-number-box-row">
+                                <div class="whi-card-number-box-col col-width-100">
+                                  <h2>{{line2.1}}</h2>
+                                </div>
+                              </div>
+
+                              <div class="whi-card-number-box-row">
+                                <div class="whi-card-number-box-col col-width-100">
+                                  <h2>{{line3.0}}</h2>
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+
+                          <div class="col-lg-3 col-md-3 col-3 center-col p-0">
+                            <div class="whi-card-number-box">
+
+                              <div class="whi-card-number-box-row">
+                                <div class="whi-card-number-box-col col-width-50">
+                                  <h2>{{line1.4}}</h2>
+                                </div>
+                                <div class="whi-card-number-box-col col-width-50">
+                                  <h2>{{line1.5}}</h2>
+                                </div>
+                              </div>
+
+                              <div class="whi-card-number-box-row">
+                                <div class="whi-card-number-box-col col-width-100">
+                                  <h2>{{line2.2}}</h2>
+                                </div>
+                              </div>
+
+                              <div class="whi-card-number-box-row">
+                                <div class="whi-card-number-box-col col-width-100">
+                                  <h2>{{line3.1}}</h2>
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+
+                          <div class="col-lg-3 col-md-3 col-3 center-col p-0">
+                            <div class="whi-card-number-box">
+
+                              <div class="whi-card-number-box-row">
+                                <div class="whi-card-number-box-col col-width-50">
+                                  <h2>{{line1.6}}</h2>
+                                </div>
+                                <div class="whi-card-number-box-col col-width-50">
+                                  <h2>{{line1.7}}</h2>
+                                </div>
+                              </div>
+
+                              <div class="whi-card-number-box-row">
+                                <div class="whi-card-number-box-col col-width-100">
+                                  <h2>{{line2.3}}</h2>
+                                </div>
+                              </div>
+                              
+                            </div>
+
+                            <div class="black-white-box right-bwb">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row pchart-row05 m-0">
+                          <div class="col-lg-12 col-md-12 col-12 center-col p-0">
+                            
+                            <div class="row pchart-row05-01 justify-center m-0">
+                              <div class="col-lg-3 col-md-3 col-3 center-col p-0">
+                                <div class="whi-card-number-box">
+
+                                  <div class="whi-card-number-box-row">
+                                    <div class="whi-card-number-box-col col-width-100">
+                                      <h2>{{line4.2}}</h2>
+                                    </div>
+                                  </div>
+
+                                  <div class="whi-card-number-box-row2">
+                                    <h4>KODIKO</h4>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row pchart-row05-02 m-0">
+
+                              <div class="col-lg-6 col-md-6 col-6 p-0">
+                                <div class="whi-card-number-box w-50-right-space">
+
+                                  <div class="whi-card-number-box-row">
+                                    <div class="whi-card-number-box-col he-115 col-width-50">
+                                      <h2>{{line4.0}}</h2>
+                                    </div>
+                                    <div class="whi-card-number-box-col he-115 col-width-50">
+                                      <h2>{{line4.1}}</h2>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                              <div class="col-lg-6 col-md-6 col-6 p-0">
+                                <div class="whi-card-number-box w-50-left-space">
+
+                                  <div class="whi-card-number-box-row">
+                                    <div class="whi-card-number-box-col he-115 col-width-50">
+                                      <h2>{{line4.3}}</h2>
+                                    </div>
+                                    <div class="whi-card-number-box-col he-115 br-0 col-width-50">
+                                      <h2>{{line4.4}}</h2>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                            </div>
+
+                            <div class="row pchart-row05-03 m-0">
+
+                              <div class="col-lg-6 col-md-6 col-6 p-0">
+                                <div class="whi-card-number-box">
+
+                                  <div class="center-justify-label pr-center-justify-label">
+                                    <span class="label-box fac-label-box">Family Code</span>
+                                  </div>
+
+                                  <div class="whi-card-number-box-row">
+                                    <div class="whi-card-number-box-col whi-card-number-120 col-width-75 br-0">
+                                      <h2>{{line5.0}}</h2>
+                                    </div>
+                                    <div class="whi-card-number-box-col whi-card-number-120 col-width-25">
+                                      <h3>{{line5.1}}</h3>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                              <div class="col-lg-6 col-md-6 col-6 p-0">
+                                <div class="whi-card-number-box">
+
+                                  <div class="center-justify-label pl-center-justify-label">
+                                    <span class="label-box sc-label-box">Social Code</span>
+                                  </div>
+
+                                  <div class="whi-card-number-box-row">
+                                    <div class="whi-card-number-box-col whi-card-number-120 col-width-25 br-0">
+                                      <h3>{{line5.2}}</h3>
+                                    </div>
+                                    <div class="whi-card-number-box-col whi-card-number-120 col-width-75 br-0">
+                                      <h2>{{line5.3}}</h2>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                              <div class="col-lg-12 col-md-12 col-12 p-0">
+                                <div class="whi-card-number-box">
+
+                                  <div class="center-justify-label pc-center-justify-label">
+                                    <span class="label-box fc-label-box">Foundation Code</span>
+                                  </div>
+
+                                  <div class="whi-card-number-box-row">
+                                    <div class="whi-card-number-box-col whi-card-number-110 col-width-100 br-0">
+                                      <h2>{{line6.0}}</h2>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="row pchart-code-info-row m-0">
+                          <div class="col-lg-12 col-md-12 p-0">
+
+                            <div class="code-info-box-root">
+                              <div class="code-info-box-row">
+                                <div class="code-info-box-left">
+                                  <div class="code-box-box fac-label-box">
+                                    <span class="label-code-box">Family Code</span>
+                                  </div>
+                                </div>
+                                <div class="code-info-box-right">
+                                  <div class="text-div">
+                                    <p>{{family_code_meaning}}</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="code-info-box-row">
+                                <div class="code-info-box-left">
+                                  <div class="code-box-box sc-label-box">
+                                    <span class="label-code-box">Social Code</span>
+                                  </div>
+                                </div>
+                                <div class="code-info-box-right">
+                                  <div class="text-div">
+                                    <p>{{social_code_meaning}}</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="code-info-box-row">
+                                <div class="code-info-box-left">
+                                  <div class="code-box-box fc-label-box">
+                                    <span class="label-code-box">Foundation Code</span>
+                                  </div>
+                                </div>
+                                <div class="code-info-box-right">
+                                  <div class="text-div">
+                                    <p>{{foundation_code_meaning}}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </div>
+                     </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="desc-info-pc-root">
+
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12">
+
+                      <div class="heading-title-div">
+                        <h2>YOU ARE:</h2>
+                      </div>
+
+                      <div class="desc-info-pc-body">
+                        {% for other_code in other_codes %}
+                        <div class="desc-info-pc-border-row">
+                          <p>{{other_code}}</p>
+                        </div>
+                        {% endfor %}
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      {% endif %}
+
+    </div>
+
+{% endblock %}

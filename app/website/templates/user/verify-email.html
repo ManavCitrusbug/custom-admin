@@ -1,0 +1,43 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="main-middle-area">
+
+      <section class="title-wt-back-section">
+        <div class="container-fluid container-fluid-2000">
+          <div class="title-wt-back-div">
+            <div class="row align-center-row">
+              <div class="col-lg-2 col-md-3">
+              </div>
+              <div class="offset-lg-3">
+                <div class="title-div">
+                {% if status %}
+                  <h2>Email Address Verified.</h2>
+                {% else %}
+                <h2>Invalid URL</h2>
+                {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-am-content-section">
+        <div class="tab-am-content-div">
+
+          <div class="container-fluid container-fluid-2000">
+            <div class="row">
+              <div class="offset-lg-5">
+                <button type="button" class="btn btn-color-primary"><a href="{% url 'login' %}" class="btn btn-color-primary">Login </a></button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+{% endblock %}

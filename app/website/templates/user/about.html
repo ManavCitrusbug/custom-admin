@@ -1,0 +1,115 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="main-middle-area">
+
+      <section class="title-wt-back-section">
+        <div class="container-fluid container-fluid-2000">
+          <div class="title-wt-back-div">
+            <div class="row align-center-row">
+              <div class="col-lg-2 col-md-3">
+                <div class="back-div">
+                  <a href="{% url 'index' %}" class="link back-link"> <span class="icon-span"> <i class="las la-angle-double-left"></i> </span> <span class="text">Back</span> </a>
+                </div>
+              </div>
+              <div class="col-lg-10 col-md-9">
+                <div class="title-div">
+                  <h2>About</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-am-content-section">
+        <div class="tab-am-content-div">
+
+          <div class="container-fluid container-fluid-2000">
+            <div class="row">
+              <div class="col-lg-10 offset-lg-2 col-md-12">
+
+                <div class="tabs-root-common">
+
+                  <div class="tabs-header-common">
+                    <ul class="nav nav-tabs">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'about' %}">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'privacy-policy' %}">Privacy Policy</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'terms-and-conditions' %}">Terms and Conditions</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="tabs-body">
+                    <div class="tab-content">
+
+                      <div id="about-tab-01" class="tab-pane active">
+
+                        <div class="general-text-content-div about-text-content-div">
+                          
+                          <div class="general-text-content-inner mb-c60">
+                            <div class="row">
+                              <div class="col-lg-5 col-md-5">
+                                <div class="img-div">
+                                  <img src="{% static 'assets/images/about-img.jpg' %}" alt="img" class="img-fluid img-responsive" />
+                                </div>
+                              </div>
+
+                              <div class="col-lg-7 col-md-7">
+
+                                <div class="content-div right-side-content">
+                                  <h6 class="text-underline mb-c30">GRANDMASTER EZIER CHUA</h6>
+                                  <p class="mb-c30">She has more than 20 years of research and consulting experience in numerology human profiling. She is an expert practitioner in Kabbalah System Analysis and Alphabetic Name Analysis.</p>
+                                  <p class="mb-c30">EZ’S NUMERICAL DNA was founded in 2003 in Singapore as MISSION POSSIBLE. Prior to this, she practiced in Taiwan and Malaysia, publishing her first numerology book <span class="ping-fang-sc-regular">“了解”</span> in 2012.</p>
+                                  <p class="mb-c30">She has an international clientele, serving more than 10,000 people from all over the world who have consulted her for their personal destiny and business enhancements. She started to conduct numerology classes in Malaysia back in 2001. Today, she has taught more than 300 students Merkaba numerology and a handful of selected students have completed the entire course on the Kabbalah Numerology System, a powerful and systematic formula to allow one to have control over their destiny.</p>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="general-text-content-inner mb-c50">
+                            <div class="row">
+                              <div class="col-lg-12 col-md-12">
+
+                                <div class="content-div">
+                                  <p class="mb-c25">Academic Background:</p>
+                                  <ul class="custom-list01">
+                                    <li>-USA Bolton International University, Bachelors of Science in Psychology</li>
+                                    <li>-USA Bolton International University, Master of Science in Psychology</li> 
+                                    <li>-USA University of Dublin, California, Doctor of Philosophy (Doctor of Psychology)</li>
+                                  </ul>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+{% endblock %}

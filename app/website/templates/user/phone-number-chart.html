@@ -1,0 +1,81 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="main-middle-area">
+
+  <section class="title-wt-back-section title-back-abs-section">
+    <div class="container-fluid container-fluid-2000">
+      <div class="title-wt-back-div">
+        <div class="row align-center-row">
+          <div class="col-lg-12 col-md-12">
+            <div class="back-div">
+              <a href="{% url 'free-charts' %}" class="link back-link"> <span class="icon-span"> <i
+                    class="las la-angle-double-left"></i> </span> <span class="text">Back</span> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pn-chart-view-section center-abs-container-section">
+    <div class="pn-chart-view-div">
+
+      <div class="container container-1170">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+
+            <div class="pn-chart-view-root">
+
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+
+                  <div class="custom-title-div">
+                    {% if status %}
+                    <h2>Your Phone Number:</h2>
+                    {% else %}
+                    <h2>Invalid Phone Number</h2>
+                    {% endif %}
+                  </div>
+
+                </div>
+              </div>
+              {% if status %}
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+                  <div class="pn-list-chart-div">
+                    {% for item in phone_number_codes %}
+                    <div class="pn-list-chart-box">
+                      <div class="pn-list-chart-box-left">
+                        <div class="pn-digit-div">
+                          <span class="span-digit span-left-digit">{{item.code|first}}</span>
+                          <span class="span-digit">{{item.code|last}}</span>
+                        </div>
+                      </div>
+                      <div class="pn-list-chart-box-right">
+                        <div class="desc-pn-div">
+                          <p>{{item.code_text}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+
+                  </div>
+
+                </div>
+              </div>
+              {% endif %}
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+{% endblock %}

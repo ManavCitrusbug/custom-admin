@@ -1,0 +1,332 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>{{page_title}} | EzierCode</title>
+  <meta content='initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width' name='viewport' />
+  <meta name="theme-color" content="#54C801">
+  <meta name="msapplication-navbutton-color" content="#54C801">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#54C801">
+  <link href="{% static 'assets/images/favicon.png' %}" rel='shortcut icon'>
+  <link href="{% static 'assets/css/bootstrap.min.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/fonts/raleway/raleway-font.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/fonts/montserrat/montserrat-font.css' %}" media="all" rel="stylesheet"
+    type="text/css" />
+  <link href="{% static 'assets/fonts/poppins/poppins-font.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/all.min.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/owl.carousel.min.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/select2.min.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/select-custom.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/select2-custom.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/date/datepicker-b4.min.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/date/bootstrap-datetimepicker.css' %}" media="all" rel="stylesheet"
+    type="text/css" />
+  <link href="{% static 'assets/css/header.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/footer.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/home-style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <script src="{% static 'assets/js/modernizr.js' %}"></script>
+  <link href="{% static 'assets/css/about-us-style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/line-awesome.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/auth-style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/product-style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/services-style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/profile-style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/verticle-tab-style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/personal-and-number-chart.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/date/full-calendar-style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/dev.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/lightbox.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <script type="text/javascript">
+
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    function uuidv4() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    let device = getCookie('device')
+
+    if (device == null || device == undefined) {
+      device = uuidv4()
+    }
+
+    document.cookie = 'device=' + device + ";domain=;path=/"
+
+  </script>
+</head>
+
+<body>
+
+  <div id="wrapper" class="wrapper home-wrapper">
+
+    <header>
+      <div class="header-div header-div2 header-pattern-div clearfix">
+        <div class="inner-top-header-div clearfix">
+          <div class="container-fluid container-fluid-1920">
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="header-container">
+
+                  <div class="logo-div">
+                    <a class="logo_link clearfix" href="{% url 'index' %}">
+                      <img src="{% static 'assets/images/logo.png' %}" class="img-fluid logo_img main-logo-icon"
+                        alt="logo" />
+                    </a>
+                  </div>
+
+                  <nav class="nav-center-div">
+                    <div class="top-nav1">
+                      <div class="cd-shadow-layer"></div>
+                      <div class="nav-m-bar">
+                        <a onclick="openNav()" class="opennav" data-placement="bottom" title=""
+                          data-original-title="Menu">
+                          <i class="menu-bars menu-icon"></i>
+                        </a>
+                      </div>
+
+                      <div class="nav-div clearfix" id="mySidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+                        <div class="row-nav-div">
+                          <div class="left-side">
+                            <ul class="nav ullist-inline" id="nav-res">
+                              <li><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+                              <li class="active"><a href="{% url 'about' %}" class="nav-link">About Me</a></li>
+                              <li><a href="{% url 'services-category' %}" class="nav-link">Services</a></li>
+                              <li><a href="{% url 'index' %}#testimonials-section" class="nav-link">Testimonials</a>
+                              </li>
+                              <li><a href="{% url 'shop' %}" class="nav-link">Shop</a></li>
+                              <li><a href="{% url 'free-charts' %}" class="nav-link">Free Chart</a></li>
+                            </ul>
+                          </div>
+
+                          <div class="right-side">
+                            <div class="right-nf-icon-div">
+                              <div class="icon-row-nf">
+                                <div class="icon-box-nf">
+                                  <a href="{% url 'cart-page' %}" class="link bag-icon-link"> <span
+                                      class="bg-custom-icon bag-icon"></span>
+                                    <span class="text-count-n" id="cart_count">{% if cart_count %} {{cart_count}}
+                                      {% else %} 0 {% endif %}</span> </a>
+                                </div>
+                              </div>
+                            </div>
+                            {% if user.is_authenticated %}
+                            <div class="auth-button-nav-div user-profile-drop-nav">
+                              <div class="user-drop-down">
+                                <div class="dropdown drop-left dropdown-custom-top">
+                                  <a class="btn btn-default dropdown-toggle" href="#" role="button"
+                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <div class="user-profile">
+                                      <div class="user-img">
+                                        <img src="{{user.profile_image.url}}" class="user-top-image" alt="user image" />
+                                      </div>
+                                    </div>
+                                  </a>
+                                  <form method="post" action="/logout/" id="logout-form">
+                                    {% csrf_token %}
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                      <ul>
+                                        <li class="logout-li"><a class="dropdown-item" href="{% url 'profile' %}"> <i
+                                              class="bg-custom-icon profile-icon"></i> Profile</a></li>
+                                        <li class="logout-li"><a class="dropdown-item" href="{% url 'logout' %}"> <i
+                                              class="bg-custom-icon logout-icon"></i> Logout</a></li>
+                                      </ul>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                            {% else %}
+                            <div class="auth-button-nav-div">
+                              <div class="btn-div mr-40">
+                                <a href="{% url 'sign-up' %}" class="btn btn-white btn-white-outline min-width-160">
+                                  Sign Up </a>
+                              </div>
+
+                              <div class="btn-div">
+                                <a href="{% url 'login' %}" class="btn btn-color-primary min-width-160"> Login </a>
+                              </div>
+                            </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--  End of header with navigation div  -->
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+      <div class="footer-div">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+
+              <div class="footer-content-row">
+                <div class="row">
+
+                  <div class="col-lg-12 col-md-12 p-0">
+                    <div class="whatsapp-div">
+
+                      <div class="whatsapp-left-div">
+                        <div class="img-div"> <img src="{% static 'assets/images/footer-img.png' %}"
+                            class="img-fluid img-footer" alt="img" /> </div>
+                        <div class="wh-app-div">
+                          <div class="link-box">
+
+                            <span class="icon-span">
+                              <i class="fab fa-whatsapp"></i>
+                            </span>
+                            <span class="text-light-wa">WhatsApp Me</span>
+                            <a href="#" class="link whatsapp-link">
+                              +65 9848 9898
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 p-0">
+                    <div class="color-footer-row"></div>
+                  </div>
+
+                  <div class="col-lg-12 col-md-12">
+                    <div class="footer-copyright-div">
+                      <div class="footer-left-cp-div">
+                        <p>©2020 <a href="#" class="link">EzierCode</a>. All rights reserved.</p>
+                      </div>
+                      <div class="footer-right-cp-div">
+                        <p>
+                          <a href="{% url 'terms-and-conditions' %}" class="link-a">Terms and Conditions</a>
+                          <span class="vline">|</span>
+                          <a href="{% url 'privacy-policy' %}" class="link-a">Privacy Policy</a>
+                        </p>
+
+                        <div class="social-icon-div-root">
+                          <ul class="footer-social-ul">
+                            <li>
+                              <a href="#" class="social-link facebook-link"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- end of wrapper -->
+  {% block javascript %}
+  {% endblock javascript %}
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/select2.full.js' %}"></script>
+  <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'assets/js/get-owl-slider.js' %}"></script>
+  <script src="{% static 'assets/js/date/datepicker-b4.min.js' %}"></script>
+  <script src="{% static 'assets/js/date/moment-with-locales.js' %}"></script>
+  <script src="{% static 'assets/js/date/bootstrap-datetimepicker.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+  <script src="{% static 'assets/js/get-flag.js' %}"></script>
+  <script src="{% static 'assets/js/full-calendar-js.js' %}"></script>
+  <script src="{% static 'assets/js/sweetalert2.all.min.js' %}"></script>
+  <script src="{% static 'assets/js/auth.js' %}"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(".js-select2").select2({
+        minimumResultsForSearch: -1
+      });
+
+      $("#select-package01").select2({
+        placeholder: "Choose Package",
+        minimumResultsForSearch: -1,
+        dropdownPosition: 'below',
+      });
+
+      $('#select-package01 + .select2').click(function () {
+        $(".select2-container").addClass("active-select2-dropdown active-select2-dropdown2");
+      });
+
+      /* date picker get */
+      var date = new Date();
+      var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      $('#date-picker-01').datepicker({
+        minDate: today
+      });
+      /* End of date picker get */
+
+      /* Time picker */
+      $('#time-picker-01').datetimepicker({
+        format: 'LT',
+        icons: {
+          time: "far fa-clock",
+          date: "far fa-calendar-alt",
+          up: "fas fa-chevron-up",
+          down: "fas fa-chevron-down"
+        },
+        // debug: true,
+      });
+      /* End of Time picker */
+      // COntact me page
+      $("#select-enquiry01").select2({
+        placeholder: "Select Enquiry",
+        minimumResultsForSearch: -1,
+        dropdownPosition: 'below',
+      });
+
+      $('#select-enquiry01 + .select2').click(function () {
+        $(".select2-container").addClass("active-select2-dropdown active-select2-dropdown2");
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

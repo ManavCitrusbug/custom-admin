@@ -1,0 +1,42 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Numerology Django application
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8.5
+    - name: Test printing your secret (Remove this step in production)
+      run: echo ${{ secrets.DB_NAME }}
+    - name: Install dependencies
+      env:
+        AARADHANA: ${{ secrets.AARADHANA }}
+        run: echo "$AARADHANA"
+      run: |
+        #python3 -m pip3 install --upgrade pip
+        python3 -m pip install -r requirements.txt
+        python3 manage.py migrate
+        echo yes | python3 manage.py collectstatic
+    #- name: Lint with flake8
+     # run: |
+        # stop the build if there are Python syntax errors or undefined names
+       # flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        #flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    #- name: Test with pytest
+     # run: |
+      #  pytest

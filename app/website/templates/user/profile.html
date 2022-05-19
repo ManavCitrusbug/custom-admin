@@ -1,0 +1,426 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="main-middle-area">
+
+  <section class="title-wt-back-section title-back-abs-section">
+    <div class="container-fluid container-fluid-2000">
+      <div class="title-wt-back-div">
+        <div class="row align-center-row">
+          <div class="col-lg-12 col-md-12">
+            <div class="back-div">
+              <a href="{% url 'index' %}" class="link back-link"> <span class="icon-span"> <i
+                    class="las la-angle-double-left"></i> </span> <span class="text">Back</span> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="profile-v-tab-section center-abs-container-section">
+    <div class="profile-v-tab-div">
+
+      <div class="container container-1170">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+
+            <div class="profile-v-tab-root">
+
+              <div class="row row-tab-v-root">
+                <div class="col-lg-12 col-md-12 col-sp-12-root">
+
+                  <div class="profile-pic-upload">
+                    <div class="circle-img-div">
+                      <img class="profile-pic" src="{{user.profile_image.url}}" />
+                      <label class="filelabel-icon" for="file-uploadpic">
+                        <i class="bg-custom-icon camera-icon"></i>
+                      </label>
+                      <input class="file-upload" id="file-uploadpic" type="file" accept="image/*">
+                    </div>
+                    <div class="text-title-div">
+                      <div class="text-title-div-row">
+                        <h3>{{user.first_name}} {{user.last_name}}</h3>
+                        <p>Have a basic understanding of your numerology chart to discover your inner potential! </p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row row-tab-v-root">
+                <div class="col-lg-12 col-md-12 col-sp-12-root">
+
+                  <div class="vertical-tabs-root-common vertical-tabs-common-02">
+
+                    <div class="vertical-tabs-header-common">
+                      <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#pro-personal-tab">Personal</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab" href="#pro-transactions-tab">Transactions</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link pro-bookings-calender-tab-link" data-toggle="tab"
+                            href="#pro-bookings-calender-tab">Bookings/Calender</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="vertical-tabs-body">
+                      <div class="tab-content">
+
+                        <div id="pro-personal-tab" class="tab-pane">
+
+                          <div class="vertical-tab-inner personal-vertical-tab-inner">
+
+                            <div class="form-div vertical-tab-form-div">
+
+                              <div class="row mx-width-750">
+
+                                <div class="col-lg-6 col-md-6">
+                                  <div class="form-group">
+                                    <label for="">FIRST NAME</label>
+                                    <div class="input-control-div">
+                                      <input type="text" id="first_name" class="form-control"
+                                        value="{% if user.first_name %}{{user.first_name}}{% endif %}"
+                                        placeholder="Enter first name" />
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                  <div class="form-group">
+                                    <label for="">LAST NAME</label>
+                                    <div class="input-control-div">
+                                      <input type="text" id="last_name" class="form-control"
+                                        value="{% if user.last_name %}{{user.last_name}}{% endif %}"
+                                        placeholder="Enter last name">
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                  <div class="form-group date-form-group">
+                                    <label for="">DATE OF BIRTH</label>
+                                    <div class="input-control-div">
+                                      <input type="text"
+                                        value="{% if user.date_of_birth %}{{user.date_of_birth}}{% endif %}"
+                                        class="form-control" id="date-picker-01" placeholder="Date" />
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                  <div class="form-group">
+                                    <label for="">EMAIL</label>
+                                    <div class="input-control-div">
+                                      <input type="email" id="email"
+                                        value="{% if user.email %}{{user.email}}{% endif %}" class="form-control"
+                                        placeholder="Enter email address" readonly>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                  <div class="form-group">
+                                    <label for="">PHONE NUMBER</label>
+                                    <div class="input-control-div">
+                                      <input type="text" id="phone" value="{% if user.phone %}{{user.phone}}{% endif %}"
+                                        class="form-control" data-mask="00 00 000 00 00"
+                                        placeholder="Enter phone number" autocomplete="off" maxlength="15">
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                  <div class="form-group">
+                                    <label for="">ADDRESS</label>
+                                    <div class="input-control-div">
+                                      <input type="text" id="address" class="form-control"
+                                        value="{% if user.address %}{{user.address}}{% endif %}"
+                                        placeholder="Enter address">
+                                    </div>
+                                  </div>
+                                </div>
+                                <form>
+                                  {% csrf_token %}
+                                  <div class="col-lg-12 col-md-12">
+                                    <div class="btn-submit-chart-div mb-20">
+                                      <button type="button" id="edit-profile" class="btn btn-color-primary"> Edit My
+                                        Profile </button>
+                                      <div class="error-message-bottom-all">
+                                        <span class="text-span" id="edit-profile-error"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div id="pro-transactions-tab" class="tab-pane active">
+
+                          <div class="vertical-tab-inner transactions-vertical-tab-inner">
+
+                            <div class="search-profile-filter-div">
+                              <div class="form-div search-v-form-div">
+
+                                <div class="error-group">
+                                  <span id="transaction-filter-error" style="color:red;"></span>
+                                </div>
+                                <div class="row mlr-8">
+                                  <div class="col-lg-10 col-md-10 width-100-m-50 plr-8">
+                                    <div class="row mlr-8">
+                                      <div class="col-lg-6 col-md-6 plr-8">
+                                        <div class="form-group select2-custom-fg no-drop-icon-select2">
+                                          <label for="">SELECT MONTH</label>
+                                          <div class="select-box select-common select-custom2">
+                                            <select class="js-select2" id="select-month01">
+                                              <option> </option>
+                                              <option value="1">January</option>
+                                              <option value="2">February</option>
+                                              <option value="3">March</option>
+                                              <option value="4">April</option>
+                                              <option value="5">May</option>
+                                              <option value="6">June</option>
+                                              <option value="7">July</option>
+                                              <option value="8">August</option>
+                                              <option value="9">September</option>
+                                              <option value="10">October</option>
+                                              <option value="11">November</option>
+                                              <option value="12">December</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div class="col-lg-6 col-md-6 plr-8">
+                                        <div class="form-group select2-custom-fg no-drop-icon-select2">
+                                          <label for="">SELECT YEAR</label>
+                                          <div class="select-box select-common select-custom2">
+                                            <select class="js-select2" id="select-year01">
+                                              <option> </option>
+                                              <option>2021</option>
+                                              <option>2020</option>
+                                              <option>2019</option>
+                                              <option>2018</option>
+                                              <option>2017</option>
+                                              <option>2016</option>
+                                              <option>2015</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-lg-2 col-md-2 width-50px plr-8">
+                                    <div class="btn-pro-search-div">
+                                      <form>
+                                        {% csrf_token %}
+                                        <button type="button" id="transaction-filter" class="btn btn-pro-icon-search">
+                                          <i class="bg-custom-icon search-icon"></i> </button>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+
+                            <div class="transactions-list-div">
+                              <div class="transactions-list-row">
+
+                                <div class="text-line-center-div">
+                                  <div class="text-line-center-row">
+                                    <div class="title-div"> <span class="text">SEPTEMBER 2020</span> </div>
+                                  </div>
+                                </div>
+
+                                <div class="transactions-list-root">
+                                  <div class="transactions-list-root-row">
+                                    {% for transaction in transactions %}
+                                    <div class="transactions-pay-box">
+                                      <div class="transactions-pay-row">
+                                        <div class="transactions-pay-left">
+                                          <h5>{{transaction.item_name}}</h5>
+                                          <p>ref: {{transaction.transaction_id}}</p>
+                                        </div>
+                                        <div class="transactions-pay-right">
+                                          <h4 style="color: #fa4386;">{{transaction.service_type}}</h4>
+                                          <h4> {{transaction.item_time}}</h4>
+                                          <h4> {{transaction.item_date}}</h4>
+                                          <h4>S$ {{transaction.item_price}}</h4>
+                                          <h4>Quantity: {{transaction.quantity}}</h4>
+                                          <p>{{transaction.created_at}}</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    {% endfor %}
+
+
+                                  </div>
+
+                                  <div class="pagination-root">
+                                    {% if transactions.has_other_pages %}
+                                    <ul class="pagination-ul">
+                                      {% if transactions.has_previous %}
+                                      <li class="next"> <a href="?page={{ transactions.previous_page_number }}"> <i
+                                            class="fas fa-chevron-left"></i> </a> </li>
+                                      {% endif %}
+                                      {% for i in transactions.paginator.page_range %}
+                                      {% if transactions.number == i %}
+                                      <li class="active"> <a href="#">{{i}}</a> </li>
+                                      {% else %}
+                                      <li> <a href="?page={{ i }}">{{i}}</a> </li>
+                                      {% endif %}
+                                      {% endfor %}
+                                      {% if transactions.has_next %}
+                                      <li class="next"> <a href="?page={{ transactions.next_page_number }}"> <i
+                                            class="fas fa-chevron-right"></i> </a> </li>
+                                      {% endif %}
+                                    </ul>
+                                    {% endif %}
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div id="pro-bookings-calender-tab" class="tab-pane ">
+
+                          <div class="vertical-tab-inner bookings-calender-tab-inner">
+
+                            <div class="calender-pro-root">
+
+                              <div class="full-calendar-custom-div">
+                                <div id='wrap'></div>
+                                <div id='calendar'></div>
+                                <div style='clear:both'></div>
+                              </div>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/select2.full.js' %}"></script>
+<script src="{% static 'assets/js/date/datepicker-b4.min.js' %}"></script>
+<script src="{% static 'assets/js/sweetalert2.all.min.js' %}"></script>
+<script src="{% static 'assets/js/full-calendar-js.js' %}"></script>
+<script src="{% static 'assets/js/profile.js' %}"></script>
+
+<script>
+  $(document).ready(function () {
+    /* date picker get */
+    $('#date-picker-01').datepicker({
+    });
+    /* End of date picker get */
+
+    /* profile pic */
+
+    var readURL = function (input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('.profile-pic').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $(".file-upload").on('change', function () {
+      readURL(this);
+    });
+
+    $(".upload-button").on('click', function () {
+      $(".file-upload").click();
+    });
+
+    /* end of pic */
+
+    /** select */
+    $(".js-select2").select2({
+      minimumResultsForSearch: -1
+    });
+
+    $("#select-month01").select2({
+      placeholder: "Select month",
+      minimumResultsForSearch: -1,
+      dropdownPosition: 'below',
+    });
+
+    $("#select-year01").select2({
+      placeholder: "Select year",
+      minimumResultsForSearch: -1,
+      dropdownPosition: 'below',
+    });
+    /* End of select */
+
+    //add title in calendar
+    $('.pro-bookings-calender-tab-link').one("click", function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+      $('#calendar').fullCalendar('render');
+      $(".full-calendar-custom-div .fc-header td.fc-header-left").html("<h2>Availability Calendar</h2>");
+      $(".fc-header-right .fc-button, .fc-header-right .fc-button-prev, .fc-header-right.fc-button-next").click(function () {
+        $(".full-calendar-custom-div .fc-header td.fc-header-left").html("<h2>Availability Calendar</h2>");
+      });
+    });
+
+    $(document).ready(function () {
+      $("#calendar").html("");
+      var calendar = $("#calendar").fullCalendar({
+        firstDay: 1,
+
+        events: [
+          {% for transaction in calendar_list %}
+        {
+          title: "{{ transaction.item_name}} \n {{ transaction.item_time}}",
+          start: '{{ transaction.item_date|date:"Y-m-d" }}',
+          textColor: '#58ca00;'
+        },
+        {% endfor %}
+        ],
+      });
+
+    });
+  });
+</script>
+{% endblock %}

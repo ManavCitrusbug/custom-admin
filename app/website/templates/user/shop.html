@@ -1,0 +1,126 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <div class="main-middle-area">
+
+      <section class="title-wt-back-section title-back-abs-section">
+        <div class="container-fluid container-fluid-2000">
+          <div class="title-wt-back-div">
+            <div class="row align-center-row">
+              <div class="col-lg-12 col-md-12">
+                <div class="back-div">
+                  <a href="{% url 'index' %}" class="link back-link"> <span class="icon-span"> <i class="las la-angle-double-left"></i> </span> <span class="text">Back</span> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="shop-product-list-section center-abs-container-section">
+        <div class="shop-product-list-div">
+
+          <div class="container container-1170">
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+
+                <div class="shop-product-root-common">
+
+                  <div class="row row-sp-root">
+                    <div class="col-lg-12 col-md-12 col-sp-12-root">
+
+                      <div class="custom-title-div">
+                        <h2>Shop</h2>
+                      </div> 
+
+                    {% for product in products %}
+                      <div class="shop-product-card-box">
+                        <div class="shop-product-card-box-row">
+
+                          <div class="shop-product-thumb-div">
+                            <div class="img-div">
+                              {% if product.product_image %}
+                              <img src="{{product.product_image.url}}" alt="img" class="img-fluid img-sp" />
+                              {% else %}
+                              <img src="{% static 'assets/images/default-photo-img.jpg' %}" alt="img" class="img-fluid img-sp" />
+                              {% endif %}
+                            </div>
+                          </div>
+
+                          <div class="sp-desc-div">
+                            <div class="sp-desc-row-div">
+                              <div class="sp-desc-top-div">
+                                <div class="sp-desc-top-left-div">
+                                  <h3> <a href="#" class="link">{{product.name}}</a> </h3>
+                                  <p>{{product.detail}}</p>
+                                </div>
+                                <div class="sp-desc-top-right-div">
+                                  <div class="sp-money-div">
+                                    <h4>S${{product.price}}</h4>
+                                  </div>
+                                  <form>
+                                    {% csrf_token %}  
+                                    <div class="button-div add-product-btn" product-id={{product.id}}>
+                                      <a href="" class="btn btn-white btn-white-outline btn-add-cart" id="btn-add-cart{{product.id}}">ADD TO CART</a>
+                                    </div>
+                                  </form> 
+                                </div>
+                              </div>
+                            </div>
+                            <div class="error-message-bottom-all">
+                              <span  class="text-span product-error" id="product-error{{product.id}}" style="color: red; font-size: 20px;"></span>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    {% endfor %}
+
+                    </div>
+                  </div>
+
+                  <div class="row row-sp-root">
+                    <div class="col-lg-12 col-md-12 col-sp-12-pagination">
+                      <div class="pagination-root">
+                        {% if products.has_other_pages %}
+                        <ul class="pagination-ul">
+                          {% if products.has_previous %}
+                          <li class="next"> <a href="?page={{ products.previous_page_number }}"> <i class="fas fa-chevron-left"></i> </a> </li>
+                          {% else %}
+                          <li class="disabled"><span>&laquo;</span></li>
+                          {% endif %}
+                          {% for i in products.paginator.page_range %}
+                          {% if products.number == i %}
+                          <li class="active"> <a href="#">{{ i }}</a> </li>
+                          {% else %}
+                          <li> <a href="?page={{ i }}">{{ i }}</a> </li>
+                          {% endif %}
+                          {% endfor %}
+                          {% if products.has_next %}
+                          <li class="next"> <a href="?page={{ products.next_page_number }}"> <i class="fas fa-chevron-right"></i> </a> </li>
+                          {% else %}
+                          <li class="disabled"><span>&raquo;</span></li>
+                          {% endif %}
+                        </ul>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/cart.js' %}"></script>
+{% endblock %}

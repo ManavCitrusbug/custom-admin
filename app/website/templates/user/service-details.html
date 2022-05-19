@@ -1,0 +1,403 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="main-middle-area">
+
+  <section class="title-wt-back-section title-back-abs-section">
+    <div class="container-fluid container-fluid-2000">
+      <div class="title-wt-back-div">
+        <div class="row align-center-row">
+          <div class="col-lg-12 col-md-12">
+            <div class="back-div">
+              <a href="{% url 'services' pk=service_category %}" class="link back-link"> <span class="icon-span"> <i
+                    class="las la-angle-double-left"></i> </span> <span class="text">Back</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <input type="hidden" value="{{service.id}}" id="service_id">
+  <section class="services-details-section center-abs-container-section">
+    <div class="services-details-div">
+
+      <div class="container container-fluid-1920">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+
+            <div class="custom-title-div">
+              <h2>{{service.name}}</h2>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+
+            <div class="services-details-root">
+              <div class="services-details-row row">
+
+                <div class="services-details-left col-lg-8">
+
+                  <div class="services-details-main-inner">
+
+                    <div class="img-banner-div">
+                      <div class="img-thumb">
+                        {% if service.service_image %}
+                        <img src="{{service.service_image.url}}" class="img-fluid img-responsive" alt="img" />
+                        {% else %}
+                        <img src="{% static 'assets/images/default-photo-img-full.jpg' %}"
+                          class="img-fluid img-responsive" alt="img" />
+                        {% endif %}
+                      </div>
+                    </div>
+
+                    <div class="availability-calendar-div">
+                      <div class="availability-calendar-inner">
+
+                        <div class="full-calendar-custom-div">
+                          <div id='wrap'></div>
+                          <div id='calendar'></div>
+                          <div style='clear:both'></div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="serv-description-area-div">
+                      <div class="serv-description-area-row">
+                        <h3>Description</h3>
+
+                        <p class="pb-40">
+                          <span class="block">{{service.detail}}</span>
+
+                        </p>
+
+                        <p class="pb-40">
+                          <span class="block">Explaining Origins and Components of Ezier Code Chart</span>
+                          <span class="block ping-fang-sc-regular">基本上，我们这个formula来自埃及，所以它的名字叫卡巴拉。</span>
+                          <span class="block">Basically, this formula originated from Egypt and its name is called
+                            Kabbalah.</span>
+                          <span class="block ping-fang-sc-regular">这个formula比较科学，也比较完整</span>
+                          <span class="block">This formula is relatively more complete and scientific as compared to
+                            other formulas.</span>
+                          <span class="block"><span class="ping-fang-sc-regular">为什么呢？因为它一定要用到我们的生日加上</span> Alphabet
+                            name, <span class="ping-fang-sc-regular">再加上我们住的地方，所以比较完整。</span> </span>
+                          <span class="block">This is because the formula is derived from our birth date, alphabetic
+                            name and our place of residence, which allows a holistic perspective of one’s life
+                            experiences to be formed.</span>
+                          <span class="block ping-fang-sc-regular">可是在我们华人的易经，八字，姓名学，和风水, 它们都把这些拆开，相对来说就比较不完整。</span>
+                          <span class="block">However, other forms of Chinese metaphysics such as I-Ching, Ba Zi,
+                            Anthroponymy (a study of names of human beings) and Feng Shui have analyzed these components
+                            separately; hence it is not as complete as Kabbalah. </span>
+                          <span
+                            class="block ping-fang-sc-regular">这个formula比较科学，因为它在算你的左脑和右脑。左脑就是你的工作脑，右脑就是你的潜意识脑。当你的左脑在休息的时候，你的右脑就会启动。</span>
+                          <span class="block">The reason why this formula is more scientific is also because it takes
+                            into account the function of the left brain and right brain. Our left brain represents our
+                            working mind, while the right brain represents our subconscious mind. When our left brain is
+                            resting, our right brain will be activated.</span>
+                          <span class="block"><span class="ping-fang-sc-regular">所以这个潜意识脑是很</span> powerful <span
+                              class="ping-fang-sc-regular">的，就是我们常说的</span> subconscious mind Sector,<span
+                              class="ping-fang-sc-regular">也就是你睡觉的地方。</span> </span>
+                          <span class="block">The subconscious mind of human beings is very powerful, which can also be
+                            interpreted as the place sector where we sleep.</span>
+                          <span class="block"><span class="ping-fang-sc-regular">风水方面呢，在同一个</span> unit <span
+                              class="ping-fang-sc-regular">就同一个风水，可是我们的</span> formula <span
+                              class="ping-fang-sc-regular">就不一样，叫做方位，也就是你睡觉的地方。</span> </span>
+                          <span class="block">In Fengshui, there is only 1 way of interpreting the Fengshui for a
+                            particular unit. However, our formula is different. It is called the Internal 3D block,
+                            which can also be interpreted as the place where we sleep.</span>
+                          <span class="block ping-fang-sc-regular">打个比方说，你的家有几个人就有几个方位。你看你自己就有两个方位了。</span>
+                          <span class="block">For example, the number of people staying in your house is equivalent to
+                            the number of Internal 3D blocks that the unit has and the numbered sectors of each person’s
+                            Internal 3D block is different from others. An individual will already have 2 different
+                            Internal 3D Blocks. </span>
+                          <span class="block"><span class="ping-fang-sc-regular">等一下我们就会聊到你住在你的屋子会怎样</span> ok</span>
+                          <span class="block">We will be discuss more about how living in your current home affects your
+                            life experiences when we are analyzing your personal Internal 3D block.</span>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="img-block-div">
+                      <img src="{% static 'assets/images/sd-img-01.jpg' %}" class="img-fluid img-responsive"
+                        alt="img" />
+                    </div>
+
+                    <div class="related-service-div">
+
+                      <div class="services-root-common">
+
+                        <div class="row row-ser-root">
+                          <div class="col-lg-12 col-md-12 col-ser-12-root">
+                            <div class="top-title-div">
+                              <h2>Check Out Other Services & Products</h2>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="row row-ser-root">
+                          {% for other_service in other_services %}
+                          <div class="col-lg-4 col-md-4 col-ser-4-root">
+                            <div class="services-product-card-box">
+                              <div class="services-product-card-box-row">
+
+                                <div class="services-product-thumb-div">
+                                  <div class="img-div">
+                                    {% if other_service.service_image %}
+                                    <img src="{{other_service.service_image.url}}" alt="img"
+                                      class="img-fluid img-ser" />
+                                    {% else %}
+                                    <img src="{% static 'assets/images/default-photo-img.jpg' %}" alt="img"
+                                      class="img-fluid img-ser" />
+                                    {% endif %}
+                                  </div>
+                                </div>
+
+                                <div class="ser-desc-div">
+                                  <div class="sp-desc-row-div">
+                                    <div class="heading-title-div">
+                                      <h3> <a href="{% url 'service-details' pk=other_service.id %}"
+                                          class="link">{{other_service.name}}</a> </h3>
+                                      <p>{{other_service.detail}}</p>
+                                    </div>
+                                    <div class="button-div">
+                                      <a href="{% url 'service-details' pk=other_service.id %}"
+                                        class="btn btn-white btn-white-outline btn-item-dollar">S${{other_service.service_charge}}/hr</a>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                          {% endfor %}
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="services-details-right col-lg-4">
+
+                  <div class="white-tab-details-card">
+
+                    <div class="white-tab-cust-box-card">
+
+                      <div class="white-tab-cust-header-card">
+                        <div class="white-tab-cust-header-row">
+                          <div class="white-tab-cust-header-col width-50">
+                            <div class="white-tab-cust">
+                              <p>BOOKING</p>
+                            </div>
+                          </div>
+                          <div class="white-tab-cust-header-col width-50">
+                            <div class="text-number-dollar">
+                              <span class="txt" id="booking_charge" hidden>S${{service.booking_charge}}</span>
+                              <span class="txt" id="service_charge" hidden>S${{service.service_charge}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="white-tab-cust-body-card">
+                        <div class="white-tab-cust-body-row">
+
+                          <div class="form-div form-general-div">
+
+                            <div class="row">
+
+                              <div class="col-lg-12 col-md-12">
+                                <div class="form-group select2-form-group">
+                                  <label for="">SERVICE TYPE </label>
+                                  <div class="select-box select-common select-custom2">
+                                    <select class="js-select2" id="service_type">
+                                      <option value="">Choose service type</option>
+                                      <option value="Local">Local</option>
+                                      <option value="Overseas">Overseas</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-lg-12 col-md-12">
+                                <div class="form-group form-group-border date-picker-form-border">
+                                  <label for="">CHOOSE DATE </label>
+                                  <div class="input-control-row">
+                                    <input type="text" class="form-control" id="date-picker-01"
+                                      placeholder="Choose Date" />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-lg-12 col-md-12">
+                                <div class="form-group select2-form-group">
+                                  <label for="">CHOOSE TIME </label>
+                                  <div class="select-box select-common select-custom2">
+                                    <select class="js-select2" id="select-time">
+                                      <option>Choose time</option>
+                                      {% for time_slot in time_slots %}
+                                      <option>{{time_slot}}</option>
+                                      {% endfor %}
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-lg-12 col-md-12">
+                                <div class="btn-submit-go-div">
+                                  <form>
+                                    {% csrf_token %}
+                                    <button type="button" id="add-to-cart"
+                                      class="btn btn-white btn-white-outline btn-go btn-block-100">
+                                      <span id="cart-btn-text" class="text">GO</span>
+                                      <i class="fas fa-check"></i>
+                                    </button>
+                                  </form>
+                                </div>
+
+                                <div class="pr-txt-div">
+                                  <p>You will not be charged yet</p>
+                                </div>
+                                <div class="message-info-div">
+                                  <div class="error-message-bottom-all">
+                                    <span class="text-span" id="cart-error"></span>
+                                  </div>
+                                </div>
+                                {% if not user.is_authenticated %}
+                                <div class="login-signup-row-div-in">
+                                  <div class="btn-div pr-5px">
+                                    <a href="{% url 'sign-up' %}" class="btn btn-white btn-white-outline"> Sign Up </a>
+                                  </div>
+
+                                  <div class="btn-div pl-5px">
+                                    <a href="{% url 'login' %}" class="btn btn-color-primary"> Sign In </a>
+                                  </div>
+                                </div>
+                                {% endif %}
+                              </div>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="message-info-div">
+                      <div class="error-message-bottom-all">
+                        <span class="text-span">Deposit fess are non-refundable*</span>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/date/datepicker-b4.min.js' %}"></script>
+  <script src="{% static 'assets/js/date/moment-with-locales.js' %}"></script>
+  <script src="{% static 'assets/js/date/bootstrap-datetimepicker.js' %}"></script>
+  <script src="{% static 'assets/js/cart.js' %}"></script>
+</div>
+
+
+
+<script>
+  $(document).ready(function () {
+    /* date picker get */
+    var date = new Date();
+    var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    $('#date-picker-01').datepicker({
+      minDate: today,
+      format: 'yyyy-mm-dd'
+    });
+    /* End of date picker get */
+
+    /* Time picker */
+    $('#time-picker-01').datetimepicker({
+      format: 'LT',
+      icons: {
+        time: "far fa-clock",
+        date: "far fa-calendar-alt",
+        up: "fas fa-chevron-up",
+        down: "fas fa-chevron-down",
+        minuteStep: 15
+      },
+      // debug: true,
+    });
+    /* End of Time picker */
+
+    $("#service_type").change(function () {
+      $("#booking_charge").attr('hidden', '')
+      $("#service_charge").attr('hidden', '')
+      var opt = $("#service_type option:selected").attr('value')
+      if (opt === "Local") {
+        $("#service_charge").attr('hidden', '')
+        $("#booking_charge").removeAttr('hidden')
+      }
+      if (opt === "Overseas") {
+        $("#booking_charge").attr('hidden', '')
+        $("#service_charge").removeAttr('hidden')
+      }
+    });
+
+    //add title in calendar
+    $('#calendar').fullCalendar('render');
+    $(".full-calendar-custom-div .fc-header td.fc-header-left").html("<h2>Availability Calendar</h2>");
+    $(".fc-header-right .fc-button, .fc-header-right .fc-button-prev, .fc-header-right.fc-button-next").click(function () {
+      $(".full-calendar-custom-div .fc-header td.fc-header-left").html("<h2>Availability Calendar</h2>");
+    });
+
+    $(document).ready(function () {
+      $("#calendar").html("");
+      var calendar = $("#calendar").fullCalendar({
+        firstDay: 1,
+        events: [
+
+          {% for key, value in ready_event.items %}
+            {
+          title: "{{value.1}} Reserved",
+          start: '{{key}}',
+          textColor: '#fd9b5b'
+        },
+        {% endfor %}
+
+/*
+          {
+        title: "Available",
+        start: "2021-04-05T13:00:00",
+        end: "2022-04-05",
+        textColor: '#58ca00;',
+        daysOfWeek: [1, 2, 3]
+      },
+*/
+        ],
+      });
+    });
+  });
+</script>
+{% endblock %}

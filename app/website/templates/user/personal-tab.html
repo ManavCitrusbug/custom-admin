@@ -1,0 +1,156 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="main-middle-area">
+
+      <section class="title-wt-back-section title-back-abs-section">
+        <div class="container-fluid container-fluid-2000">
+          <div class="title-wt-back-div">
+            <div class="row align-center-row">
+              <div class="col-lg-12 col-md-12">
+                <div class="back-div">
+                  <a href="{% url 'index' %}" class="link back-link"> <span class="icon-span"> <i class="las la-angle-double-left"></i> </span> <span class="text">Back</span> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="personal-chart-v-tab-section center-abs-container-section">
+        <div class="personal-chart-v-tab-div">
+
+          <div class="container container-1170">
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+
+                <div class="personal-chart-v-tab-root">
+
+                  <div class="row row-v-tab-root">
+                    <div class="col-lg-12 col-md-12 col-sp-12-root">
+
+                      <div class="custom-title-div">
+                        <h2>Plot your free chart</h2>
+
+                        <div class="header-div-box">
+                          <h4>Welcome to EzierCode.</h4>
+                          <p>Have a basic understanding of your numerology chart to discover your inner potential!  </p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="row row-tab-v-root">
+                    <div class="col-lg-12 col-md-12 col-sp-12-root">
+
+                      <div class="vertical-tabs-root-common">
+
+                        <div class="vertical-tabs-header-common">
+                          <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="{% url 'personal-chart-tab' %}">Personal</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link " href="{% url 'free-charts' %}">Phone Number</a>
+                            </li>
+                          </ul>
+                        </div>
+      
+                        <div class="vertical-tabs-body">
+                          <div class="tab-content">
+      
+                            <div id="personal-tab-01" class="tab-pane active">
+      
+                              <div class="vertical-tab-inner personal-vertical-tab-inner">
+
+                                <div class="form-div vertical-tab-form-div">
+                                  {% if not user.is_authenticated %}
+                                  <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                      <div class="prag-top-text-div">
+                                        <p>Existing user? <a href="{% url 'login' %}" class="link link-btn">Click here to login</a></p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  {% endif %}
+
+                                  <div class="row mx-width-750">
+
+                                    <div class="col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <label for="">NAME</label>
+                                        <div class="input-control-div">
+                                          <input type="text" id="name" class="form-control" placeholder="Enter name" />
+                                        </div>
+                                      </div>
+                                    </div>
+      
+                                    <div class="col-lg-6 col-md-6">
+                                      <div class="form-group date-form-group">
+                                        <label for="">Date of Birth</label>
+                                        <div class="input-control-div">
+                                          <input type="text" class="form-control" id="date-picker-01" placeholder="Date" />
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                      <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="personal-tc-policy" name="example1">
+                                        <label class="custom-control-label" for="personal-tc-policy">I accept terms and conditions and general policy.</label>
+                                      </div>
+                                    </div>
+                                    <form>
+                                      {% csrf_token %}
+                                    <div class="col-lg-12 col-md-12">
+                                      <div class="btn-submit-chart-div">
+                                        <button type="button" class="btn btn-color-primary" id="plot-personal-chart"> Plot My Chart </button>
+                                        <div class="error-message-bottom-all">
+                                          <span class="text-span" id="personal-tab-error"></span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    </form>
+                                  </div>
+
+                                </div>
+
+                              </div>
+      
+                            </div>
+      
+                          </div>
+                        </div>
+      
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/date/datepicker-b4.min.js' %}"></script>
+    <script src="{% static 'assets/js/free-charts.js' %}"></script>
+
+  <script>
+    $(document).ready(function () {
+      /* date picker get */
+      $('#date-picker-01').datepicker({
+      });
+      /* End of date picker get */
+    });
+  </script>
+
+{% endblock %}

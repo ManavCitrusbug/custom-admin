@@ -1,0 +1,180 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="main-middle-area">
+
+    <section class="title-wt-back-section title-back-abs-section">
+        <div class="container-fluid container-fluid-2000">
+            <div class="title-wt-back-div">
+                <div class="row align-center-row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="back-div">
+                            <a href="{% url 'index' %}" class="link back-link"> <span class="icon-span"> <i
+                                        class="las la-angle-double-left"></i> </span> <span class="text">Back</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services-list-section center-abs-container-section">
+        <div class="services-list-div">
+
+            <div class="container container-1170">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+
+                        <div class="custom-title-div" style="margin: 0 0 80px 0;">
+                            <h2>Services</h2>
+                        </div>
+
+                        <div class="kabbalah-content-div2">
+                            <div class="row">
+                                {% for service in services %}
+                                <div class="col-lg-4 col-md-6">
+                                    <a href="{% url 'services' pk=service.pk %}" class="link">
+                                        <div class="card k-vontent-card-box2">
+                                            <div class="card-body k-vontent-card-inner2">
+                                                <h4>{{service.category_name}}</h4>
+                                                <div class="center-desc-div2">
+                                                    <p>{{service.category_description}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                {% endfor %}
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Master Class -->
+    <section class="container container-1170">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+
+                <div>
+                    <h4 class="master-heading">MASTER CLASS (TRAIN TO BE MASTER)</h4>
+                    <ul class="master-list">
+                        <li>Module 1: MIND HEART WISDOM</li>
+                        <li>Module 2: MIND HEART WISDOM</li>
+                        <li>Module 3: MIND HEART WISDOM</li>
+                        <li>Module 4: MIND HEART WISDOM</li>
+                        <li>Module 5: MIND HEART WISDOM</li>
+                        <li>Module 6: MIND HEART WISDOM</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="contactMe">
+            <a href="{% url 'contact' %}" class="btn btn-white btn-white-outline">
+                Contact Me </a>
+        </div>
+        <hr class="hrline">
+    </section>
+
+    <section class="container container-1170">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <h4 class="master-heading">Jump Start<br>
+                    JUNIOR MERKABAH LIFE 1 & 2<br>
+                    Life Merkabah Numerology Class
+                </h4>
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div class="jump-start-div">
+                    <p class="jump-start-para">
+                        <span class="span-block">
+                            Day & Topic : 1, 1 of 9 – What is Merkabah Numerology?<br>
+                            Duration : 1½ Hour (10:00am to 11:30am)<br>
+                            Knowledge : Understand the origin of Merkabah Numerology and their effects in our life. The
+                            different between Merkabah Numerology and other Metaphysical Science.
+                        </span>
+                        <span class="span-block">
+                            Day & Topic : 1, 2 of 9 – Foundation of numbers 0-9<br>
+                            Duration : 1½ Hour (11:30am to1:00pm)<br>
+                            Knowledge : Able to realize, understand the meanings and building blocks for each number,
+                            the different dimension & energy level of each number and their association.
+                        </span>
+                        <span class="span-block">
+                            Day & Topic : 1, 3 of 9 – Merkabah chart<br>
+                            Duration : 1½ Hour (2:00pm to 3:30pm)<br>
+                            Knowledge : Able to plot a Merkabah chart using individual date of birth and understand it
+                            representation of a human body, the male & female orientation and also it association with
+                            age.
+                        </span>
+                        <span class="span-block">
+                            Day & Topic : 1, 4 of 9 – Number codes for Merkabah chart<br>
+                            Duration : 1½ Hour (3:30pm to 5:00pm)<br>
+                            Knowledge : Understand the basic meanings of number codes 00-99 and it application to
+                            Merkabah chart. The action, desire and resultant of a code. The unique life paths, family
+                            code,
+                            social code and foundation code.
+                        </span>
+                        <span class="span-block redclr">
+                            Day & Topic : 1, 5 of 9 – How to read a Merkabah chart<br>
+                            Duration : 1 Hour (5:00pm to 6:00pm)<br>
+                            Knowledge : Understand the steps in reading a Merkabah chart and apply the number codes
+                            in a Merkabah chart for their meanings.
+                        </span>
+                        <span class="span-block">
+                            Day & Topic : 2, 6 of 9 – Mind Heart Wisdom (MHW) chart<br>
+                            Duration : 1½ Hour (10:00am to 11:30am)<br>
+                            Knowledge : Able to plot a MHW chart with reference from Merkaba chart. The association of
+                            meanings in different part of the chart. Your thinking power, your desire, your
+                            action, your social behaviour and your family matter.
+                        </span>
+                        <span class="span-block">
+                            Day & Topic : 2, 7 of 9 – MHW chart and it meanings<br>
+                            Duration : 1½ Hour (11:30am to 1:00pm)<br>
+                            Knowledge : Understand the different meanings of numbers in MHW chart. A better insight
+                            of what you think, how big is your desire, the speed and depth of your action, how important
+                            is
+                            your family to you and also how others perceive of you.
+                        </span>
+                        <span class="span-block">
+                            Day & Topic : 2, 8 of 9 – 3D Inter block dimension (Fang Wei)<br>
+                            Duration : 1½ Hour (2:00pm to 3:30pm)<br>
+                            Knowledge : Able to plot the Fang Wei chart with reference from MHW chart. The Important
+                            of our subconscious mind. Understand numbers appears in Fang Wei. The booster of your life.
+                        </span>
+                        <span class="span-block">
+                            Day & Topic : 2, 9 of 9 – 3D Inter block dimension (Fang Wei) and it meanings<br>
+                            Duration : 1½ Hour (3:30pm to 5:00pm)<br>
+                            Knowledge : Understand numbers and it application in houses. Superimpose FW
+                            chart into floor plan. Apply and locate the booster sector of your house. The front door and
+                            sleeping sectors are the most profound (boost or drag).
+                        </span>
+                        <span class="span-block redclr">
+                            Day & Topic : 2, Application of numbers <br>
+                            Duration : 1 Hour (5:00pm to 6:00pm)<br>
+                            Knowledge : Learn how to apply numbers to enhance our life. To understand the characters of
+                            our
+                            loved ones and colleagues. Select a better mobile number to give ourselves or businesses a
+                            little push.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

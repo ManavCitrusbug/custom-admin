@@ -1,0 +1,633 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script type="text/javascript">
+
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    function uuidv4() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    let device = getCookie('device')
+
+    if (device == null || device == undefined) {
+      device = uuidv4()
+    }
+
+    document.cookie = 'device=' + device + ";domain=;path=/"
+
+  </script>
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Home | EzierCode</title>
+  <meta content='initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width' name='viewport' />
+  <meta name="theme-color" content="#54C801">
+  <meta name="msapplication-navbutton-color" content="#54C801">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#54C801">
+  <link href="{% static 'assets/images/favicon.png' %}" rel='shortcut icon'>
+  <link href="{% static 'assets/css/bootstrap.min.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/fonts/raleway/raleway-font.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/fonts/montserrat/montserrat-font.css' %}" media="all" rel="stylesheet"
+    type="text/css" />
+  <link href="{% static 'assets/fonts/poppins/poppins-font.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/all.min.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/owl.carousel.min.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/select2.min.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/select-custom.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/select2-custom.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/date/datepicker-b4.min.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/date/bootstrap-datetimepicker.css' %}" media="all" rel="stylesheet"
+    type="text/css" />
+  <link href="{% static 'assets/css/header.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/footer.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/home-style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/style.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/dev.css' %}" media="all" rel="stylesheet" type="text/css" />
+  <script src="{% static 'assets/js/modernizr.js' %}"></script>
+</head>
+
+<body>
+
+  <div id="wrapper" class="wrapper home-wrapper">
+
+    <header>
+      <div class="header-div header-div2 clearfix">
+        <div class="inner-top-header-div clearfix">
+          <div class="container-fluid container-fluid-1920">
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="header-container">
+
+                  <div class="logo-div">
+                    <a class="logo_link clearfix" href="{% url 'index' %}">
+                      <img src="{% static 'assets/images/logo.png' %}" class="img-fluid logo_img main-logo-icon"
+                        alt="logo" />
+                    </a>
+                  </div>
+
+                  <nav class="nav-center-div">
+                    <div class="top-nav1">
+                      <div class="cd-shadow-layer"></div>
+                      <div class="nav-m-bar">
+                        <a onclick="openNav()" class="opennav" data-placement="bottom" title=""
+                          data-original-title="Menu">
+                          <i class="menu-bars menu-icon"></i>
+                        </a>
+                      </div>
+
+                      <div class="nav-div clearfix" id="mySidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+                        <div class="row-nav-div">
+                          <div class="left-side">
+                            <ul class="nav ullist-inline" id="nav-res">
+                              <li class="active"><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+                              <li><a href="{% url 'about' %}" class="nav-link">About Me</a></li>
+                              <li><a href="{% url 'services-category' %}" class="nav-link">Services</a></li>
+                              <li><a href="{% url 'shop' %}" class="nav-link">Shop</a></li>
+                              <li><a href="{% url 'free-charts' %}" class="nav-link">Free Chart</a></li>
+                            </ul>
+                          </div>
+
+                          <div class="right-side">
+                            <div class="right-nf-icon-div">
+                              <div class="icon-row-nf">
+                                <div class="icon-box-nf">
+                                  <a href="{% url 'cart-page' %}" class="link bag-icon-link"> <span
+                                      class="bg-custom-icon bag-icon"></span>
+                                    <span class="text-count-n" id="cart_count">{% if cart_count %} {{cart_count}}
+                                      {% else %} 0 {% endif %}</span></a>
+                                </div>
+                              </div>
+                            </div>
+                            {% if user.is_authenticated %}
+                            <div class="auth-button-nav-div user-profile-drop-nav">
+                              <div class="user-drop-down">
+                                <div class="dropdown drop-left dropdown-custom-top">
+                                  <a class="btn btn-default dropdown-toggle" href="#" role="button"
+                                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <div class="user-profile">
+                                      <div class="user-img">
+                                        <img src="{{user.profile_image.url}}" class="user-top-image" alt="user image" />
+                                      </div>
+                                    </div>
+                                  </a>
+                                  <form method="post" action="/logout/" id="logout-form">
+                                    {% csrf_token %}
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                      <ul>
+                                        <li class="logout-li"><a class="dropdown-item" href="{% url 'profile' %}"> <i
+                                              class="bg-custom-icon profile-icon"></i> Profile</a></li>
+                                        <li class="logout-li"><a class="dropdown-item" href="{% url 'logout' %}"> <i
+                                              class="bg-custom-icon logout-icon"></i> Logout</a></li>
+                                      </ul>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                            {% else %}
+                            <div class="auth-button-nav-div">
+                              <div class="btn-div mr-40">
+                                <a href="{% url 'sign-up' %}" class="btn btn-white min-width-160"> Sign Up </a>
+                              </div>
+
+                              <div class="btn-div">
+                                <a href="{% url 'login' %}" class="btn btn-color-primary min-width-160"> Login </a>
+                              </div>
+                            </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--  End of header with navigation div  -->
+    </header>
+
+    <div class="main-middle-area pt-custom-0">
+
+      <section class="main-banner-section" id="main-banner-section">
+        <div class="banner-div">
+
+          <div class="content-banner-root">
+            <div class="container-fluid container-fluid-1920">
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+
+                  <div class="content-banner">
+                    <div class="text-content">
+                      <div class="img-thumb-div">
+                        <img src="{% static 'assets/images/icons/circlelogo.png' %}" class="img-fluid img-circle-center"
+                          alt="img" />
+                      </div>
+                      <h1>掌控着您的命運</h1>
+                      <h2>Control Your Destiny</h2>
+                    </div>
+                  </div>
+
+                  <div class="center-filter-div">
+                    <div class="search-filter-main-div">
+                      <div class="search-filter-main-row">
+                        <div class="search-filter-left">
+
+                          <div class="search-filter-box width-25 bor-right">
+                            <div class="form-group select2-form-group">
+                              <label for="">CHOOSE SERVICE TYPE </label>
+                              <div class="select-box select-common select-custom2">
+                                <select class="js-select2" id="service_type">
+                                  <option value="">Choose type</option>
+                                  <option value="Local">Local</option>
+                                  <option value="Overseas">Overseas</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="search-filter-box width-25 bor-right">
+                            <div class="form-group select2-form-group">
+                              <label for="">Services </label>
+                              <div class="select-box select-common select-custom2">
+                                <select class="js-select2" id="select-package01">
+                                  <option service_id="0"> </option>
+                                  <option service_id="0">Choose Package</option>
+                                  {% for service in services %}
+                                  <option service_id="{{service.pk}}">{{service.name}}</option>
+                                  {% endfor %}
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="search-filter-box width-25 bor-right">
+                            <div class="form-group date-picker-form-group">
+                              <label for="">CHOOSE DATE </label>
+                              <div class="input-control-row">
+                                <input type="text" class="form-control" id="date-picker-01" placeholder="Choose Date" />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="search-filter-box width-25 bor-right">
+                            <div class="form-group select2-form-group">
+                              <label for="">CHOOSE TIME </label>
+                              <div class="select-box select-common select-custom2">
+                                <select class="js-select2" id="select-time">
+                                  <option>Choose time</option>
+                                  {% for time_slot in time_slots %}
+                                  <option>{{time_slot}}</option>
+                                  {% endfor %}
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="search-filter-right">
+                          <form>
+                            {% csrf_token %}
+                            <button class="btn btn-go-check" id="add-service"> <span class="text">GO</span> <i
+                                class="fas fa-check"></i>
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="errordivbox" class="message-info-div search-filter-main-div"
+                      style="display: none; visibility: hidden;">
+                      <div class="error-message-bottom-all error-div-box">
+                        <i class="fa fa-exclamation-triangle" style='color: white;' aria-hidden="true"></i>
+                        &nbsp;<span class="text-span error-div-text" id="add-service-error"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="kabbalah-everything-section" id="kabbalah-everything-section">
+        <div class="kabbalah-everything-div">
+          <div class="container-fluid container-fluid-1300">
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="heading-div">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                      <div class="heading-div-inner">
+                        <h2>Kabbalah in Everything</h2>
+                        <p>Kabbalah exists in our daily life - from work to study and even starting a business. Having a
+                          strong will and positive approach towards your direction in life is good. But the effects of
+                          your hardwork can be amplified or guided in a better direction using the knowledge of numbers.
+                          Let us work together to see what can be improved.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="kabbalah-content-div">
+                  <div class="row">
+                    {% for service in service_category %}
+                    <div class="col-lg-4 col-md-6">
+                      <a href="{% url 'services' pk=service.pk %}" class="link">
+                        <div class="card k-vontent-card-box">
+                          <div class="card-body k-vontent-card-inner">
+                            <h4>{{service.category_name}}</h4>
+                            <div class="center-desc-div">
+                              <p class="card-text">{{service.category_description}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    {% endfor %}
+
+
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section class="banner-content-left-section">
+        <div class="banner-content-left-div">
+
+          <div class="container-fluid">
+            <div class="row">
+
+              <div class="col-lg-6 col-md-12 p-0">
+                <div class="image-banner-div">
+                  <div class="image-banner-inner">
+                    <img src="{% static 'assets/images/banner-01.jpg' %}" class="img-fluid image-banner-fluid"
+                      alt="img" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-md-12 p-0">
+                <div class="text-content-div">
+                  <div class="text-content-inner">
+
+                    <div class="heading-div">
+                      <h3>
+                        <span class="block">Intelligence in Motion, </span>
+                        <span class="block strong">TIME IS YOUR LIFE</span>
+                      </h3>
+                    </div>
+
+                    <div class="text-content-desc-inner">
+                      <p>What you accomplished within time creates your life—your successes and disappointments. You
+                        have a personal cycle rhythm within time, according to your date of birth. Understanding and
+                        utilising personal cycle rhythm within time, enables you to harness positive energies to achieve
+                        happiness in many ways.</p>
+                      <p>Because cycles influence your thoughts, feelings, interests, and your expression. If you have
+                        the insight of the cycle, this could guide you to make the appropriate decisions and actions.
+                        Using cycles will allow you to generate effectively in your: </p>
+                      <p>
+                        <span class="block">Businesses</span>
+                        <span class="block">Career</span>
+                        <span class="block">Relationship</span>
+                        <span class="block">Family life</span>
+                        <span class="block">Personal growth and achievements</span>
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="banner-content-right-section">
+        <div class="banner-content-right-div">
+
+          <div class="container-fluid">
+            <div class="row">
+
+              <div class="col-lg-6 col-md-12 order-2 img-col-6 p-0">
+                <div class="image-banner-div">
+                  <div class="image-banner-inner">
+                    <img src="{% static 'assets/images/banner-02.jpg' %}" class="img-fluid image-banner-fluid"
+                      alt="img" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-md-12 order-1 text-col-6 p-0">
+                <div class="text-content-div">
+                  <div class="text-content-inner">
+
+                    <div class="heading-div mb-25">
+                      <h3>
+                        <span class="block">The Philosophy of </span>
+                        <span class="block strong">KABBALAH</span>
+                      </h3>
+                    </div>
+
+                    <div class="text-content-desc-inner">
+                      <p class="mb-15">The philosophy of Kabbalah basically reveals how the universe and life combine to
+                        work together. Kabbalah numerology analyzes an individual’s basic characteristics and inner self
+                        while teaching us how to receive fulfillment in our lives. According to this system, our
+                        physical universe operates according to a series of laws governed by a spiritual system.
+                        <span class="block">Kabbalah numerology originated approximately 4,000 years ago and was
+                          developed by Egyptian. Some people believe the system was developed much earlier by
+                          Sumerians.</span>
+                      </p>
+                      <p class="mb-15">Kabbalah Numerology is a powerful system for discovery, a tool for seeking hidden
+                        knowledge and connections in the world around us. Today, however, there are two competing
+                        philosophies regarding the approach that should be taken. One system is based on birthday number
+                        definitions, and the other is based on finding connections between words of equal value, through
+                        Alphabetic systems. These systems are so different in their assumptions that it is almost
+                        comical to call them by the same name. One is a path to discovery and the other is a balm for
+                        needy psyches.</p>
+                      <p class="mb-15">However, numerology in Kabbalistic sense is different from what you may think it
+                        is. Kabbalah numerology is not about numbers, but rather about birth path system and alphabetic
+                        name. It allows one to interpret the effects that one’s name may have on the course of future
+                        events. A same birthday with a different name can tell everything different about the person it
+                        belongs to: personality and temper, actions and performance, likes and dislikes, past and
+                        future. </p>
+                      <p class="mb-15">Many events happening in one’s life can be explained with the help of Kabbalah
+                        numerology. A lonely or unsuccessful person can also use it to find a better half and a true
+                        soul mate, to choose a career that matches one’s personality and needs, and take up a hobby that
+                        can change one’s lifestyle. However, the best results may be achieved by combining Kabbalistic
+                        ideas and numerology. Knowledge and energy of Kabbalah numerology give people the desired
+                        support and provide sustainable growth in every area of their lives.</p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="testimonials-section" id="testimonials-section">
+        <div class="testimonials-div">
+
+          <div class="heading-div">
+            <div class="container-fluid container-fluid-1300">
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+                  <div class="heading-inner-div">
+                    <h2>Testimonials</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonials-owl-slider-main-div">
+            <div class="container-fluid container-fluid-1300">
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+
+                  <div class="testimonials-slider-slider-root">
+                    <div class="owl-carousel owl-theme testimonials-owl-div" id="testimonials-owl">
+
+                      {% for testimonial in testimonials %}
+                      <div class="item">
+                        <div class="testimonials-card-box">
+                          <div class="testimonials-card-inner">
+                            <div class="image-div">
+                              <div class="img-thumb-div">
+                                <img src="{{ testimonial.logo.url }}" alt="img" class="img-fluid img-testimonials" />
+                              </div>
+                            </div>
+                            <div class="user-desc-row">
+                              <div class="desc-div">
+                                <p>{{testimonial.testimonial_text}}</p>
+                              </div>
+
+                              <div class="user-name-div">
+                                <h5>{{testimonial.name}}</h5>
+                                <p>{{testimonial.designation}}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+
+    <footer>
+      <div class="footer-div">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+
+              <div class="footer-content-row">
+                <div class="row">
+
+                  <div class="col-lg-12 col-md-12 p-0">
+                    <div class="whatsapp-div">
+
+                      <div class="whatsapp-left-div">
+                        <div class="img-div"> <img src="{% static 'assets/images/footer-img.png' %}"
+                            class="img-fluid img-footer" alt="img" /> </div>
+                        <div class="wh-app-div">
+                          <div class="link-box">
+
+                            <span class="icon-span">
+                              <i class="fab fa-whatsapp"></i>
+                            </span>
+                            <span class="text-light-wa">WhatsApp Me</span>
+                            <a href="#" class="link whatsapp-link">
+                              +65 9848 9898
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 p-0">
+                    <div class="color-footer-row"></div>
+                  </div>
+
+                  <div class="col-lg-12 col-md-12">
+                    <div class="footer-copyright-div">
+                      <div class="footer-left-cp-div">
+                        <p>©2020 <a href="#" class="link">EzierCode</a>. All rights reserved.</p>
+                      </div>
+                      <div class="footer-right-cp-div">
+                        <p>
+                          <a href="{% url 'terms-and-conditions' %}" class="link-a">Terms and Conditions</a>
+                          <span class="vline">|</span>
+                          <a href="{% url 'privacy-policy' %}" class="link-a">Privacy Policy</a>
+                        </p>
+
+                        <div class="social-icon-div-root">
+                          <ul class="footer-social-ul">
+                            <li>
+                              <a href="#" class="social-link facebook-link"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- end of wrapper -->
+
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/select2.full.js' %}"></script>
+  <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'assets/js/get-owl-slider.js' %}"></script>
+  <script src="{% static 'assets/js/date/datepicker-b4.min.js' %}"></script>
+  <script src="{% static 'assets/js/date/moment-with-locales.js' %}"></script>
+  <script src="{% static 'assets/js/date/bootstrap-datetimepicker.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+  <script src="{% static 'assets/js/cart.js' %}"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(".js-select2").select2({
+        minimumResultsForSearch: -1
+      });
+
+      $("#select-package01").select2({
+        placeholder: "Choose Package",
+        minimumResultsForSearch: -1,
+        dropdownPosition: 'below',
+      });
+
+      $('#select-package01 + .select2').click(function () {
+        $(".select2-container").addClass("active-select2-dropdown active-select2-dropdown2");
+      });
+
+      /* date picker get */
+      var date = new Date();
+      var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      $('#date-picker-01').datepicker({
+        minDate: today,
+        format: 'yyyy-mm-dd'
+      });
+      /* End of date picker get */
+
+      /* Time picker */
+      $('#time-picker-01').datetimepicker({
+        format: 'LT',
+        icons: {
+          time: "far fa-clock",
+          date: "far fa-calendar-alt",
+          up: "fas fa-chevron-up",
+          down: "fas fa-chevron-down"
+        },
+        // debug: true,
+      });
+      /* End of Time picker */
+    });
+  </script>
+
+</body>
+
+</html>
