@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from customadmin.models import User, TransactionDetail, BookedService, PurchasedProduct
 from django.http import JsonResponse
-from dateutil.parser import parse
+# from dateutil.parser import parse
 import datetime
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from numerology.helpers import get_cart_count

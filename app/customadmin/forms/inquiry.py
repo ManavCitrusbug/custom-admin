@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 from django import forms
 
 from ..models import Inquiry, InquiryType
@@ -11,13 +12,14 @@ class InquiryCreationForm(forms.ModelForm):
 
     class Meta:
         model = Inquiry
-        fields = [
-            "name",
-            "email",
-            "phone",
-            "inquiry_type",
-            "note"
-        ]
+        # fields = [
+        #     "name",
+        #     "email",
+        #     "phone",
+        #     "inquiry_type",
+        #     "note"
+        # ]
+        fields="__all__"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

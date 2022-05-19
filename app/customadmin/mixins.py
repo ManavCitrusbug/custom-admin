@@ -40,6 +40,7 @@ class ModelOptsMixin(object):
         """Returns the context data to use in this view."""
         ctx = super().get_context_data(**kwargs)
         if hasattr(self, "model"):
+            print(self.model._meta,'****************************************************************')
             ctx["opts"] = self.model._meta
         return ctx
 

@@ -4,7 +4,6 @@ from django import forms
 
 from ..models import User
 
-
 # -----------------------------------------------------------------------------
 # User
 # -----------------------------------------------------------------------------
@@ -82,7 +81,7 @@ class UserChangeForm(forms.ModelForm):
         ]
 
     def clean(self):
-        cleaned_data = super(ServiceChangeForm, self).clean()
+        cleaned_data = super(UserChangeForm, self).clean()
         email = cleaned_data.get("email")
         password = cleaned_data.get("password")
         last_name = cleaned_data.get("last_name")

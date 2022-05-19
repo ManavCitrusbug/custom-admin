@@ -10,15 +10,15 @@ class InquiryType(ActivityTracking):
         return f"{self.inquiry_type}"
 
     class Meta:
-        verbose_name = "Inquiry Type"
-        verbose_name_plural = "Inquiry Types"
+        verbose_name = "InquiryType"
+        verbose_name_plural = "InquiryTypes"
         ordering = ["-created_at"]
 
 
 class Inquiry(ActivityTracking):
     name = models.CharField(max_length=200, blank=True, null=True, default='')
     email = models.EmailField(null=True, blank=True, unique=False)
-    inquiry_type = models.ForeignKey("InquiryType", on_delete=models.CASCADE)
+    inquiry_type = models.ForeignKey(InquiryType, on_delete=models.CASCADE)
     phone = models.CharField(max_length=15, blank=True, null=True, default='')
     note = models.CharField(max_length=255, blank=True, null=True, default='')
 

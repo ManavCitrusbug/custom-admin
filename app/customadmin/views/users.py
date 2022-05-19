@@ -49,7 +49,7 @@ def export_user_csv(request):
             avatar = user.profile_image.url
 
 
-        output.append([user.first_name, user.last_name, user.username, user.email, user.is_active,user.description,gp,user.is_staff, user.is_superuser, request.build_absolute_uri(avatar),])
+        output.append([user.first_name, user.last_name, user.username, user.email, user.is_active,gp,user.is_staff, user.is_superuser, request.build_absolute_uri(avatar),])
     #CSV Data
     writer.writerows(output)
     return response
@@ -120,11 +120,11 @@ class UserUpdateView(MyUpdateView):
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-        kwargs["user"] = self.request.user
+        # kwargs["user"] = self.request.user
         return kwargs
 
     def get_success_url(self):
-        # opts = self.model._meta
+        opts = self.model._meta
         return reverse("customadmin:user-list")
 
 class UserDeleteView(MyDeleteView):
